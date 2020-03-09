@@ -1,0 +1,11 @@
+Feature: Testing APi for the first time
+
+Scenario: Get all country names
+
+Given url 'https://reqres.in/api/users/2'
+When method GET
+Then status 200
+Then print response
+* def Output = read('result.json')
+Then match response == Output
+Then match response.data.id == 2
